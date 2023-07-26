@@ -35,7 +35,7 @@ function Timer() {
         if (distance < 0) {
           clearInterval(x);
           document.querySelector('div').innerHTML = 'Times up';
-          // new Notification('Times up');
+          new Notification('Times up');
         }
       });
     } else {
