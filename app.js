@@ -1,4 +1,15 @@
 const button = document.querySelector('button');
+// main.js 또는 index.js 등 스크립트 파일에서 등록
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(function (registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(function (err) {
+      console.error('Service Worker registration failed:', err);
+    });
+}
 
 function Timer() {
   var now1 = new Date().getTime();
@@ -24,7 +35,7 @@ function Timer() {
         if (distance < 0) {
           clearInterval(x);
           document.querySelector('div').innerHTML = 'Times up';
-          new Notification('Times up');
+          // new Notification('Times up');
         }
       });
     } else {
